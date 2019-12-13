@@ -117,9 +117,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mediaPlayer.pause();
             buttonPlay.setText("PLAY");
         }else {
-            started=true;
-            mediaPlayer.start();
-            buttonPlay.setText("PAUSE");
+
+//            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+//                @Override
+//                public void onPrepared(MediaPlayer mp) {
+//                    // Do something. For example: playButton.setEnabled(true);
+                    started=true;
+                    mediaPlayer.start();
+                    buttonPlay.setText("PAUSE");
+
+//                }
+//            });
+
         }
 
     }
