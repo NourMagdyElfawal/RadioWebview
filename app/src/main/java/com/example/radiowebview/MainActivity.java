@@ -1,6 +1,7 @@
 package com.example.radiowebview;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -23,6 +24,7 @@ import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import java.io.IOException;
@@ -36,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int permission;
     private ProgressBar playSeekBar;
 
-    private Button buttonPlay;
 
     private Button buttonStopPlay;
 
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     boolean prepared=false;
 
     boolean started=false;
+    private ImageView buttonPlay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +68,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         new PlayerTask().execute(stream);
 
         buttonPlay.setEnabled(false);
-        buttonPlay.setText("LOADING");
+        buttonPlay.setBackgroundResource(R.drawable.loading);
         buttonPlay.setOnClickListener(this);
+
+        //To increase and decrease volume
+
+        AudioManager audioManager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+
+
+
+
+
         webView=findViewById(R.id.webView);
         WebSettings webSettings=webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -88,34 +99,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        return true;
+//    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @Override
     public void onClick(View v) {
         if(started){
             started=false;
             mediaPlayer.pause();
-            buttonPlay.setText("PLAY");
+            buttonPlay.setBackgroundResource(R.drawable.play);
         }else {
 
 //            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
@@ -124,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                    // Do something. For example: playButton.setEnabled(true);
                     started=true;
                     mediaPlayer.start();
-                    buttonPlay.setText("PAUSE");
+                    buttonPlay.setBackgroundResource(R.drawable.pause);
 
 //                }
 //            });
@@ -162,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         protected void onPostExecute(Boolean aBoolean) {
             super.onPostExecute(aBoolean);
             buttonPlay.setEnabled(true);
-            buttonPlay.setText("PLAY");
+            buttonPlay.setBackgroundResource(R.drawable.play);
         }
     }
 
