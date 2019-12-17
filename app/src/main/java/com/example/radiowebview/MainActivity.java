@@ -1,10 +1,13 @@
 package com.example.radiowebview;
 
 import android.Manifest;
+import android.app.ActionBar;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -31,6 +34,7 @@ import android.widget.ProgressBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.IOException;
+import java.util.Objects;
 
 //public class MainActivity extends AppCompatActivity implements View.OnClickListener,MediaPlayer.OnPreparedListener{
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
@@ -61,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
 
 //        initializeUIElements();
 //
@@ -124,7 +129,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "00201094338881"));
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -136,21 +142,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(started){
+
             started=false;
             mediaPlayer.pause();
             buttonPlay.setBackgroundResource(R.drawable.play);
+
         }else {
 
-//            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-//                @Override
-//                public void onPrepared(MediaPlayer mp) {
-//                    // Do something. For example: playButton.setEnabled(true);
-                    started=true;
-                    mediaPlayer.start();
-                    buttonPlay.setBackgroundResource(R.drawable.pause);
-
-//                }
-//            });
+            started=true;
+            mediaPlayer.start();
+            buttonPlay.setBackgroundResource(R.drawable.pause);
 
         }
 
@@ -195,6 +196,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mediaPlayer.setDataSource(strings[0]);
                 mediaPlayer.prepare();
                 prepared=true;
+                Log.e("doInBackground","doInBackground");
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -207,8 +210,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         protected void onPostExecute(Boolean aBoolean) {
             super.onPostExecute(aBoolean);
             buttonPlay.setEnabled(true);
-            buttonPlay.setBackgroundResource(R.drawable.play);
+            mediaPlayer.start();
+            buttonPlay.setBackgroundResource(R.drawable.pause);
+            Log.e("onPostExecute","onPostExecute");
+
         }
+
+
     }
 
     @Override
@@ -216,6 +224,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onPause();
         if(started){
             mediaPlayer.pause();
+            Log.e("onPause","onPause");
+
         }
     }
 
@@ -224,6 +234,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onResume();
         if(started){
             mediaPlayer.start();
+            Log.e("onResume","onResume");
+
         }
     }
 
@@ -232,6 +244,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onDestroy();
         if(prepared){
             mediaPlayer.release();
+            Log.e("onDestroy","onDestroy");
+
         }
     }
 

@@ -2,29 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.radiowebview">
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.audio.low_latency" />
     <uses-feature android:name="android.hardware.audio.pro" />
     <uses-feature android:name="android.hardware.microphone" android:required="true"/>
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
-    <uses-feature android:name="android.hardware.camera.front" android:required="true" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTI"/>
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:usesCleartextTraffic="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

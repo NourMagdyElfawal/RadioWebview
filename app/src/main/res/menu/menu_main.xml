@@ -4,6 +4,7 @@
     tools:context="com.example.avitalcard.MainActivity" >
     <item android:id="@+id/action_settings"
         android:title="@string/action_call"
+        android:icon="@drawable/call"
         android:orderInCategory="100"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
 </menu>

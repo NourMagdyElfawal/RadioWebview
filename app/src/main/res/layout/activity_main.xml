@@ -17,50 +17,29 @@
         android:id="@+id/webView"/>
 
 
-<!--    <LinearLayout-->
-<!--        android:orientation="vertical"-->
-<!--        android:layout_width="fill_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginBottom="20dp"-->
-<!--        android:layout_gravity="bottom"        >-->
-<!--&lt;!&ndash;        <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_width="fill_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:text="Source: (Radio La Chevere)"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginTop="10dip"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:gravity="center" />&ndash;&gt;-->
+        <FrameLayout
+            android:id="@+id/lin_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/circle"
+            android:layout_marginBottom="36dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="@id/customBottomBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-<!--&lt;!&ndash;        <ProgressBar&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/progressBar1"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:indeterminateOnly="false"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:progressDrawable="@android:drawable/progress_horizontal"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:indeterminateDrawable="@android:drawable/progress_indeterminate_horizontal"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:minHeight="20dip"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:maxHeight="20dip"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_width="fill_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginLeft="20dip"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginRight="20dip"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginTop="10dip"></ProgressBar>&ndash;&gt;-->
+            <ImageView
+                android:id="@+id/buttonPlay"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:layout_margin="12dp"
+                android:clickable="true"
+                android:tint="@color/white"
+                app:elevation="6dp" />
 
-
-
-<!--        <LinearLayout android:id="@+id/linearLayout1"-->
-<!--            android:layout_height="wrap_content" android:layout_width="match_parent"-->
-<!--            android:layout_marginTop="20dip" android:gravity="center">-->
-
-<!--            <Button-->
-<!--                android:text="PLAY"-->
-<!--                android:id="@+id/buttonPlay"-->
-<!--                android:visibility="gone"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content">-->
-<!--            </Button>-->
-<!--            <Button android:text="Stop" android:id="@+id/buttonStopPlay"-->
-<!--                android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>-->
-<!--        </LinearLayout>-->
-<!--    </LinearLayout>-->
-
+        </FrameLayout>
     <com.example.radiowebview.CurvedBottomNavigationView
         android:id="@+id/customBottomBar"
         android:layout_width="match_parent"
@@ -78,26 +57,7 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-<FrameLayout
-android:id="@+id/lin_id"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_gravity="bottom|center"
-android:layout_margin="27dp"
-android:clickable="true"
-android:background="@drawable/circle">
 
-<ImageView
-    android:id="@+id/buttonPlay"
-    android:layout_width="35dp"
-    android:layout_height="35dp"
-    android:layout_centerInParent="true"
-    android:layout_margin="12dp"
-    android:clickable="true"
-    android:tint="@color/white"
-    app:elevation="6dp" />
-
-</FrameLayout>
 
 <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

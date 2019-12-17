@@ -5,7 +5,7 @@
     <item
         android:id="@+id/action_increase"
         android:enabled="true"
-        android:icon="@drawable/plus"
+        android:icon="@drawable/ic_double_arrow_up"
         android:title=""
         app:showAsAction="never" />
 
@@ -17,7 +17,7 @@
     <item
         android:id="@+id/action_decrease"
         android:enabled="true"
-        android:icon="@drawable/minus"
+        android:icon="@drawable/ic_double_arrow_down"
         android:title=""
         app:showAsAction="never" />
 </menu>
