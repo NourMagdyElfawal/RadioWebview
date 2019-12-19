@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "937601621075",
+    "firebase_url": "https://radiowebview.firebaseio.com",
+    "project_id": "radiowebview",
+    "storage_bucket": "radiowebview.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937601621075:android:02b1d83d4de158c3ce3aa6",
+        "android_client_info": {
+          "package_name": "com.filseka.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937601621075-38c4t728mn51las40fh6eae9inkjd3nl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.filseka.app",
+            "certificate_hash": "b1eb0e5bb418660fc8537be0a7d52c7e66be1af0"
+          }
+        },
+        {
+          "client_id": "937601621075-0fvptghufel6imbpuo7vcfk6656upi83.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq7eOhgIDaYJlXu_3OFxfJ6CTJv8CZato"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937601621075-0fvptghufel6imbpuo7vcfk6656upi83.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
